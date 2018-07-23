@@ -7,5 +7,5 @@ A test application (for the Switch) that I made to see how easy it was to render
  - B: Walk backwards
  - X: Walk forward
  - Y: Place/Remove block
- - -: Change between placing/removing
+ - -: Change between placing and removing
  - +: Quit application
