@@ -23,7 +23,6 @@ static u32 color_orange = 0xFFE74116;
 static u32 color_brown = 0xFF524138;
 static u32 color_grey = 0xFF5C5C5A;
 static u32 color_pink = 0xFFC51DB5;
-static u32 color_blue50 = 0xFF80FFFF;
 
 bool mapInitDone = false;
 
@@ -216,29 +215,6 @@ void update() {
     editCubePosX = camPosX;
     editCubePosY = camPosY;
     editCubePosZ = camPosZ;
-    /*for (int i = 0; i <= maxEditDist; i++) {
-        if (camRotY > 0 && camRotY <= 90) {
-            if ((editCubeRemove == false && cubeMap[math_rint(editCubePosY) + (worldHeight / 2)][math_rint(editCubePosX + math_sin(camRotY)) + (worldSize / 2)][math_rint(editCubePosZ + math_cos(camRotY)) + (worldSize / 2)] == 0) || (editCubeRemove == true && cubeMap[math_rint(editCubePosY) + (worldHeight / 2)][math_rint(editCubePosX) + (worldSize / 2)][math_rint(editCubePosZ) + (worldSize / 2)] == 0)) {
-                editCubePosX += math_sin(camRotY);
-                editCubePosZ += math_cos(camRotY);
-            }
-        } else if (camRotY > 90 && camRotY <= 180) {
-            if ((editCubeRemove == false && cubeMap[math_rint(editCubePosY) + (worldHeight / 2)][math_rint(editCubePosX + math_cos(camRotY)) + (worldSize / 2)][math_rint(editCubePosZ - math_sin(camRotY)) + (worldSize / 2)] == 0) || (editCubeRemove == true && cubeMap[math_rint(editCubePosY) + (worldHeight / 2)][math_rint(editCubePosX) + (worldSize / 2)][math_rint(editCubePosZ) + (worldSize / 2)] == 0)) {
-                editCubePosX += math_cos(camRotY - 90);
-                editCubePosZ -= math_sin(camRotY - 90);
-            }
-        } else if (camRotY > 180 && camRotY <= 270) {
-            if ((editCubeRemove == false && cubeMap[math_rint(editCubePosY) + (worldHeight / 2)][math_rint(editCubePosX - math_sin(camRotY)) + (worldSize / 2)][math_rint(editCubePosZ - math_cos(camRotY)) + (worldSize / 2)] == 0) || (editCubeRemove == true && cubeMap[math_rint(editCubePosY) + (worldHeight / 2)][math_rint(editCubePosX) + (worldSize / 2)][math_rint(editCubePosZ) + (worldSize / 2)] == 0)) {
-                editCubePosX -= math_sin(camRotY - 180);
-                editCubePosZ -= math_cos(camRotY - 180);
-            }
-        } else if (camRotY > 270 && camRotY <= 360) {
-            if ((editCubeRemove == false && cubeMap[math_rint(editCubePosY) + (worldHeight / 2)][math_rint(editCubePosX - math_cos(camRotY)) + (worldSize / 2)][math_rint(editCubePosZ + math_sin(camRotY)) + (worldSize / 2)] == 0) || (editCubeRemove == true && cubeMap[math_rint(editCubePosY) + (worldHeight / 2)][math_rint(editCubePosX) + (worldSize / 2)][math_rint(editCubePosZ) + (worldSize / 2)] == 0)) {
-                editCubePosX -= math_cos(camRotY - 270);
-                editCubePosZ += math_sin(camRotY - 270);
-            }
-        }
-    }*/
     for (int i = 0; i <= maxEditDist; i++) {
         if (camRotX >= 0 && camRotX <= 90) {
             if (camRotY > 0 && camRotY <= 90) {
