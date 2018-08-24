@@ -95,34 +95,11 @@ void update() {
     int camPosYR = math_rint(camPosY);
     int camPosZR = math_rint(camPosZ);
     if (speed != 0) {
-        if (camRotY > 0 && camRotY <= 90) {
-            if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][math_rint(camPosX + (math_sin(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][math_rint(camPosX + (math_sin(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0) {
-                camPosX += math_sin(camRotY) * speed;
-            }
-            if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ + (math_cos(camRotY) * 0.5)) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ + (math_cos(camRotY) * 0.5)) + (worldSize / 2)] == 0) {
-                camPosZ += math_cos(camRotY) * speed;
-            }
-        } else if (camRotY > 90 && camRotY <= 180) {
-            if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][math_rint(camPosX + (math_cos(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][math_rint(camPosX + (math_cos(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0) {
-                camPosX += math_cos(camRotY - 90) * speed;
-            }
-            if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ - (math_sin(camRotY) * 0.5)) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ - (math_sin(camRotY) * 0.5)) + (worldSize / 2)] == 0) {
-                camPosZ -= math_sin(camRotY - 90) * speed;
-            }
-        } else if (camRotY > 180 && camRotY <= 270) {
-            if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][math_rint(camPosX - (math_sin(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][math_rint(camPosX - (math_sin(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0) {
-                camPosX -= math_sin(camRotY - 180) * speed;
-            }
-            if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ - (math_cos(camRotY) * 0.5)) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ - (math_cos(camRotY) * 0.5)) + (worldSize / 2)] == 0) {
-                camPosZ -= math_cos(camRotY - 180) * speed;
-            }
-        } else if (camRotY > 270 && camRotY <= 360) {
-            if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][math_rint(camPosX - (math_cos(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][math_rint(camPosX - (math_cos(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0) {
-                camPosX -= math_cos(camRotY - 270) * speed;
-            }
-            if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ + (math_sin(camRotY) * 0.5)) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ + (math_sin(camRotY) * 0.5)) + (worldSize / 2)] == 0) {
-                camPosZ += math_sin(camRotY - 270) * speed;
-            }
+        if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][math_rint(camPosX + (math_sin(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][math_rint(camPosX + (math_sin(camRotY) * 0.5)) + (worldSize / 2)][(camPosZR) + (worldSize / 2)] == 0) {
+            camPosX += math_sin(camRotY) * speed;
+        }
+        if (cubeMap[(camPosYR - 1) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ + (math_cos(camRotY) * 0.5)) + (worldSize / 2)] == 0 && cubeMap[(camPosYR) + (worldHeight / 2)][(camPosXR) + (worldSize / 2)][math_rint(camPosZ + (math_cos(camRotY) * 0.5)) + (worldSize / 2)] == 0) {
+            camPosZ += math_cos(camRotY) * speed;
         }
         speed = 0;
     }
@@ -639,26 +616,10 @@ void renderCube(float posX, float posY, float posZ, int blockType) {
         float zPosRTC;
         float zPosRTC2;
         if (rTP == true) {
-            if (camRotY >= 0 && camRotY < 90) {
-                xPosRTC = (math_cos(camRotY) * pX) - (math_sin(camRotY) * pZ);
-                zPosRTC = (math_cos(camRotY) * pZ) + (math_sin(camRotY) * pX);
-            } else if (camRotY >= 90 && camRotY < 180) {
-                xPosRTC = (-math_cos(camRotY - 90) * pZ) - (math_sin(camRotY - 90) * pX);
-                zPosRTC = (math_cos(camRotY - 90) * pX) - (math_sin(camRotY - 90) * pZ);
-            } else if (camRotY >= 180 && camRotY < 270) {
-                xPosRTC = (-math_cos(camRotY - 180) * pX) + (math_sin(camRotY - 180) * pZ);
-                zPosRTC = (-math_cos(camRotY - 180) * pZ) - (math_sin(camRotY - 180) * pX);
-            } else if (camRotY >= 270 && camRotY <= 360) {
-                xPosRTC = (math_cos(camRotY - 270) * pZ) + (math_sin(camRotY - 270) * pX);
-                zPosRTC = (-math_cos(camRotY - 270) * pX) + (math_sin(camRotY - 270) * pZ);
-            }
-            if (camRotX >= 0 && camRotX <= 90) {
-                yPosRTC = -((math_cos(camRotX) * pY) - (math_sin(camRotX) * zPosRTC));
-                zPosRTC2 = (math_cos(camRotX) * zPosRTC) + (math_sin(camRotX) * pY);
-            } else if (camRotX >= 270 && camRotX <= 360) {
-                yPosRTC = -((math_cos(camRotX - 270) * zPosRTC) + (math_sin(camRotX - 270) * pY));
-                zPosRTC2 = (-math_cos(camRotX - 270) * pY) + (math_sin(camRotX - 270) * zPosRTC);
-            }
+            xPosRTC = (math_cos(camRotY) * pX) - (math_sin(camRotY) * pZ);
+            zPosRTC = (math_cos(camRotY) * pZ) + (math_sin(camRotY) * pX);
+            yPosRTC = -((math_cos(camRotX) * pY) - (math_sin(camRotX) * zPosRTC));
+            zPosRTC2 = (math_cos(camRotX) * zPosRTC) + (math_sin(camRotX) * pY);
             if (i == 0) {
                 p0x = xPosRTC;
                 p0y = yPosRTC;
